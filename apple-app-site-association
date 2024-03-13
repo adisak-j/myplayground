@@ -1,0 +1,15 @@
+{
+    "applinks": {
+        "apps": [],
+        "details": [
+            {
+                "appID": "DDJ4NDK8N8.app.avantis.rket",
+                "paths": [ "*" ]
+            },
+            {
+                "appID": "DDJ4NDK8N8.app.avantis.rket-dev",
+                "paths": [ "*" ]
+            }
+        ]
+    }
+}
