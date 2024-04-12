@@ -3,11 +3,15 @@
         "apps": [],
         "details": [
             {
-                "appID": "DDJ4NDK8N8.app.avantis.rket",
+                "appID": "S466WX64J3.app.avantis.rket",
                 "paths": [ "*" ]
             },
             {
-                "appID": "DDJ4NDK8N8.app.avantis.rket-dev",
+                "appID": "S466WX64J3.app.avantis.rket-dev",
+                "paths": [ "*" ]
+            },
+            {
+                "appID": "S466WX64J3.app.avantis.rket-devx",
                 "paths": [ "*" ]
             }
         ]
