@@ -7,10 +7,6 @@
                 "paths": [ "*" ]
             },
             {
-                "appID": "S466WX64J3.app.avantis.rket-dev",
-                "paths": [ "*" ]
-            },
-            {
                 "appID": "S466WX64J3.app.avantis.rket-devx",
                 "paths": [ "*" ]
             }
