@@ -36,7 +36,7 @@
         const urlParams = new URLSearchParams(window.location.search);
         const newsId = urlParams.get('newsId');
         const assetId = urlParams.get('assetId');
-        const alIosUrl = `rketdev://news-detail?newsId=${newsId}&assetId=${assetId}`;
+        const alIosUrl = `rket://news-detail?newsId=${newsId}&assetId=${assetId}`;
 
         document.querySelector('meta[property="al:ios:url"]').setAttribute('content', alIosUrl);
 

@@ -36,7 +36,7 @@
         const urlParams = new URLSearchParams(window.location.search);
         const symbol = urlParams.get('symbol');
         const id = urlParams.get('id');
-        const alIosUrl = `rketdev://asset-info?symbol=${symbol}&id=${id}`;
+        const alIosUrl = `rket://asset-info?symbol=${symbol}&id=${id}`;
 
         document.querySelector('meta[property="al:ios:url"]').setAttribute('content', alIosUrl);
 
