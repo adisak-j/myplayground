@@ -28,7 +28,18 @@
 <script>
     // Create function to redirect to some URL
     function redirectToAppStore() {
-        window.location.href = 'https://apps.apple.com/us/app/r-ket/id6445971302';
+        const urlParams = new URLSearchParams(window.location.search);
+        const symbol = urlParams.get('symbol');
+        const id = urlParams.get('id');
+        const alIosUrl = `rket://asset-info?symbol=${symbol}&id=${id}`;
+
+        // Try to open the app by calling the custom URL scheme
+        window.location.href = alIosUrl;
+
+        // If the app is not installed, redirect to the App Store by delay 1000ms
+        setTimeout(() => {
+            window.location.href = 'https://apps.apple.com/us/app/r-ket/id6445971302';
+        }, 500);
     }
 
     // Create function getQueryParams
