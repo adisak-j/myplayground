@@ -38,9 +38,6 @@
         const id = urlParams.get('id');
         const alIosUrl = `rketdev://asset-info?symbol=${symbol}&id=${id}`;
 
-        console.log('symbol:', symbol);
-        console.log('id:', id);
-        console.log('alIosUrl:', alIosUrl);
         document.querySelector('meta[property="al:ios:url"]').setAttribute('content', alIosUrl);
 
         // console log value of al:ios:url
