@@ -26,36 +26,37 @@
 </head>
 <body>
 <script>
-    // Create function to redirect to some URL
-    function redirectToAppStore() {
+    // Create function get alIosUrl
+    function getAlIosUrl() {
         const urlParams = new URLSearchParams(window.location.search);
         const symbol = urlParams.get('symbol');
         const id = urlParams.get('id');
         const alIosUrl = `rket://asset-info?symbol=${symbol}&id=${id}`;
+
+        return alIosUrl;
+    }
+
+    // Create function to redirect to some URL
+    function redirectToAppStore() {
+        const alIosUrl = getAlIosUrl();
 
         // Try to open the app by calling the custom URL scheme
         window.location.href = alIosUrl;
 
         // If the app is not installed, redirect to the App Store by delay 1000ms
         setTimeout(() => {
-            window.location.href = 'https://apps.apple.com/us/app/r-ket/id6445971302';
+            // window.location.href = 'https://apps.apple.com/us/app/r-ket/id6445971302';
+            window.location.href = 'https://r-ket.app/';
         }, 500);
     }
 
-    // Create function getQueryParams
-    function getQueryParams() {
-        const urlParams = new URLSearchParams(window.location.search);
-        const symbol = urlParams.get('symbol');
-        const id = urlParams.get('id');
-        const alIosUrl = `rket://asset-info?symbol=${symbol}&id=${id}`;
-
+    // Create function setAttribute to meta tag
+    function setAttribute() {
+        const alIosUrl = getAlIosUrl();
         document.querySelector('meta[property="al:ios:url"]').setAttribute('content', alIosUrl);
-
-        // console log value of al:ios:url
-        console.log('al:ios:url:', document.querySelector('meta[property="al:ios:url"]').getAttribute('content'));
     }
-
-    getQueryParams();
+    
+    setAttribute();
     redirectToAppStore();
 </script>
 
