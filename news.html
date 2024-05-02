@@ -36,21 +36,26 @@
         return alIosUrl;
     }
 
-    // Create function to redirect to some URL
+    // Create function to redirect to app store
     function redirectToAppStore() {
+        window.location.href = 'https://apps.apple.com/us/app/r-ket/id6445971302';
+    }
+
+    // Create function to redirect to some URL
+    function openAppOrWeb() {
         const alIosUrl = getAlIosUrl();
 
         // Try to open the app by calling the custom URL scheme
+        
         window.location.href = alIosUrl;
 
         setTimeout(() => {
-            // window.location.href = 'https://apps.apple.com/us/app/r-ket/id6445971302';
             window.location.href = 'https://r-ket.app/';
         }, 500);
     }
 
     // Create function setAttribute to meta tag
-    function setAttribute() {
+    function gy7() {
         const alIosUrl = getAlIosUrl();
 
         document.querySelector('meta[property="al:ios:url"]').setAttribute('content', alIosUrl);
@@ -58,6 +63,7 @@
 
     setAttribute();
     redirectToAppStore();
+    // openAppOrWeb();
 </script>
 
 </body>
