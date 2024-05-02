@@ -24,7 +24,23 @@
     
     <title>Asset-Info</title>
 </head>
+<!-- Create css for body background red -->
+<style>
+    body {
+        background-color: #03d3dd;
+    }
+</style>
 <body>
+    <!-- Add logo top center -->
+    <div style="text-align: center; padding-top: 100px;">
+        <img src="images/logo.png" alt="R'ket">
+    </div>
+    
+    <div style="text-align: center; padding-top: 200px;">
+        <a href="https://apps.apple.com/us/app/r-ket/id6445971302">
+            <img src="images/app-store.png" alt="App Store">
+        </a>
+    </div>
 <script>
     // Create function get alIosUrl
     function getAlIosUrl() {
@@ -34,11 +50,6 @@
         const alIosUrl = `rket://asset-info?symbol=${symbol}&id=${id}`;
 
         return alIosUrl;
-    }
-
-    // Create function to redirect to app store
-    function redirectToAppStore() {
-        window.location.href = 'https://apps.apple.com/us/app/r-ket/id6445971302';
     }
 
     // Create function to redirect to some URL
@@ -61,7 +72,6 @@
     }
     
     setAttribute();
-    // redirectToAppStore();
     tryOpenNativeAppOrAppStore();
 </script>
 
