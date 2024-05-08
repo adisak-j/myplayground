@@ -44,38 +44,43 @@
     </div>
 </div>
 <script>
-    // Create function get alIosUrl
-    function getAlIosUrl() {
-        const urlParams = new URLSearchParams(window.location.search);
-        const newsId = urlParams.get('newsId');
-        const assetId = urlParams.get('assetId');
-        const alIosUrl = `rket://news-detail?newsId=${newsId}&assetId=${assetId}`;
+    // // Create function get alIosUrl
+    // function getAlIosUrl() {
+    //     const urlParams = new URLSearchParams(window.location.search);
+    //     const newsId = urlParams.get('newsId');
+    //     const assetId = urlParams.get('assetId');
+    //     const alIosUrl = `rket://news-detail?newsId=${newsId}&assetId=${assetId}`;
 
-        return alIosUrl;
-    }
+    //     return alIosUrl;
+    // }
 
-    // Create function to redirect to some URL
-    function tryOpenNativeAppOrAppStore() {
-        const alIosUrl = getAlIosUrl();
+    // // Create function to redirect to some URL
+    // function tryOpenNativeAppOrAppStore() {
+    //     const alIosUrl = getAlIosUrl();
 
-        // Try to open the app by calling the custom URL scheme
+    //     // Try to open the app by calling the custom URL scheme
         
-        window.location.href = alIosUrl;
+    //     window.location.href = alIosUrl;
 
-        setTimeout(() => {
-            window.location.href = 'https://apps.apple.com/us/app/r-ket/id6445971302';
-        }, 1000);
+    //     setTimeout(() => {
+    //         window.location.href = 'https://apps.apple.com/us/app/r-ket/id6445971302';
+    //     }, 1000);
+    // }
+
+    // // Create function setAttribute to meta tag
+    // function setAttribute() {
+    //     const alIosUrl = getAlIosUrl();
+
+    //     document.querySelector('meta[property="al:ios:url"]').setAttribute('content', alIosUrl);
+    // }
+
+    // setAttribute();
+    // tryOpenNativeAppOrAppStore();
+    try {
+        window.location.href = 'https://r-ket.app/asset-info?symbol=AAPL&id=11000015';
+    } catch (error) {
+        window.location.href = 'https://apps.apple.com/us/app/r-ket/id6445971302';
     }
-
-    // Create function setAttribute to meta tag
-    function setAttribute() {
-        const alIosUrl = getAlIosUrl();
-
-        document.querySelector('meta[property="al:ios:url"]').setAttribute('content', alIosUrl);
-    }
-
-    setAttribute();
-    tryOpenNativeAppOrAppStore();
 </script>
 
 </body>
