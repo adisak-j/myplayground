@@ -78,6 +78,12 @@
         closeBtn.addEventListener('click', () => {
             window.webkit.messageHandlers.setPortraitOrientation.postMessage("");
         });
+
+        // Option 2: Fires when HTML DOM is ready (faster)
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log('DOMContentLoaded call native hideLoading');
+            window.webkit.messageHandlers.hideLoading.postMessage("");
+        });
     </script>
 </body>
 </html> 
