@@ -44,6 +44,16 @@
         button:hover {
             background-color: #45a049;
         }
+
+        .orientation-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
@@ -54,6 +64,7 @@
         <div class="button-container">
             <button class="close-btn" id="closeBtn">Close</button>
         </div>
+        <div id="orientationText" class="orientation-text">Portrait Mode</div>
     </div>
 
     <script>
@@ -100,8 +111,8 @@
         // Update initial orientation text
         document.addEventListener('DOMContentLoaded', () => {
             console.log('DOMContentLoaded call native hideLoading');
-            window.webkit.messageHandlers.hideLoading.postMessage("");
             updateOrientationText();
+            window.webkit.messageHandlers.hideLoading.postMessage("");
         });
     </script>
 </body>
