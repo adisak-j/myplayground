@@ -66,22 +66,17 @@
         backBtn.addEventListener('click', () => {
             console.log('Back button clicked');
             // Add your back button functionality here
-            history.back();
+            window.webkit.messageHandlers.navigateBack.postMessage("");
         });
 
         rotateBtn.addEventListener('click', () => {
             console.log('Rotate button clicked');
             // Add your rotate functionality here
-            if (screen.orientation) {
-                screen.orientation.lock('landscape')
-                    .catch(err => console.log('Orientation lock failed:', err));
-            }
+            window.webkit.messageHandlers.setLandscapeOrientation.postMessage("");
         });
 
         closeBtn.addEventListener('click', () => {
-            console.log('Close button clicked');
-            // Add your close functionality here
-            window.close();
+            window.webkit.messageHandlers.setPortraitOrientation.postMessage("");
         });
     </script>
 </body>
