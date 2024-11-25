@@ -79,10 +79,29 @@
             window.webkit.messageHandlers.setPortraitOrientation.postMessage("");
         });
 
-        // Option 2: Fires when HTML DOM is ready (faster)
+        // Update orientation text based on current orientation
+        function updateOrientationText() {
+            const orientationText = document.getElementById('orientationText');
+            if (window.orientation === 90 || window.orientation === -90) {
+                console.log('Landscape mode');
+                orientationText.textContent = 'Landscape Mode';
+            } else {
+                console.log('Portrait mode');
+                orientationText.textContent = 'Portrait Mode';
+            }
+        }
+
+        // Modify the orientation change event listener
+        window.addEventListener('orientationchange', () => {
+            console.log('Screen orientation changed');
+            updateOrientationText();
+        });
+
+        // Update initial orientation text
         document.addEventListener('DOMContentLoaded', () => {
             console.log('DOMContentLoaded call native hideLoading');
             window.webkit.messageHandlers.hideLoading.postMessage("");
+            updateOrientationText();
         });
     </script>
 </body>
