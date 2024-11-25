@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Earning Drilldown</title>
+    <style>
+        .container {
+            border: 2px solid red;
+            padding: 20px;
+            position: relative;
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .back-btn {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
+
+        .rotate-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <button class="back-btn" id="backBtn">Back</button>
+        <button class="rotate-btn" id="rotateBtn">Rotate to landscape</button>
+        
+        <div class="button-container">
+            <button class="close-btn" id="closeBtn">Close</button>
+        </div>
+    </div>
+
+    <script>
+        // Get button elements
+        const backBtn = document.getElementById('backBtn');
+        const rotateBtn = document.getElementById('rotateBtn');
+        const closeBtn = document.getElementById('closeBtn');
+
+        // Add event listeners
+        backBtn.addEventListener('click', () => {
+            console.log('Back button clicked');
+            // Add your back button functionality here
+            history.back();
+        });
+
+        rotateBtn.addEventListener('click', () => {
+            console.log('Rotate button clicked');
+            // Add your rotate functionality here
+            if (screen.orientation) {
+                screen.orientation.lock('landscape')
+                    .catch(err => console.log('Orientation lock failed:', err));
+            }
+        });
+
+        closeBtn.addEventListener('click', () => {
+            console.log('Close button clicked');
+            // Add your close functionality here
+            window.close();
+        });
+    </script>
+</body>
+</html> 
