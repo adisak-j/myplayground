@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .spacer {
+            height: 100vh;
+            background: #f0f0f0;
+        }
+        #targetElement {
+            height: 200px;
+            background: #ff0000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        body {
+    border: 10px solid yellow;
+    margin: 0; /* Added to make border stick to edges */
+}
+
+    </style>
+</head>
+<body>
+    <div class="spacer">Scroll down</div>
+    <div id="targetElement">This is the target element</div>
+    <div class="spacer">Scroll up</div>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                // Get the element's position relative to viewport
+                const rect = entry.target.getBoundingClientRect();
+                const windowHeight = window.innerHeight;
+                
+                // Calculate the element's center position
+                const elementCenter = rect.top + (rect.height/2);
+                const viewportCenter = windowHeight/2;
+                
+                // Check if element is near center (within 50px threshold)
+                const isInCenter = Math.abs(elementCenter - viewportCenter) < 50;
+
+                if (entry.isIntersecting && isInCenter) {
+                    alert('Element is exactly in the center of viewport!');
+                }
+            });
+        }, {
+            threshold: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0]
+        });
+
+        // const element = document.getElementById('targetElement');
+        // observer.observe(element);
+
+        window.addEventListener('scroll', () => {
+            const element = document.getElementById('targetElement');
+            const rect = element.getBoundingClientRect();
+            const windowHeight = window.innerHeight;
+            
+            const elementCenter = rect.top + (rect.height/2);
+            const viewportCenter = windowHeight/2;
+            
+            // You can adjust the threshold (50) to make it more or less strict
+            if (Math.abs(elementCenter - viewportCenter) < 50) {
+                console.log('Element is in center!');
+                // or do something else when element is centered
+            }
+        });
+    </script>
+    
+</body>
+</html>
